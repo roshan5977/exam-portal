@@ -1,0 +1,39 @@
+<div class="container mt-4">
+    <h3>Admin Panel</h3>
+  
+    <div class="form-group">
+      <label>Select Question Set:</label>
+      <select class="form-control" [(ngModel)]="selectedSet">
+        <option *ngFor="let s of ['set1','set2','set3','set4','set5']">{{s}}</option>
+      </select>
+    </div>
+  
+    <div class="form-group mt-3">
+      <label>Subject Name:</label>
+      <input class="form-control" [(ngModel)]="subject">
+      <button class="btn btn-primary mt-2" (click)="updateSubject()">Update Subject</button>
+    </div>
+  
+    <hr>
+  
+    <h5>Add Question</h5>
+    <div class="form-group">
+      <label>Question:</label>
+      <input class="form-control" [(ngModel)]="question">
+    </div>
+  
+    <div *ngFor="let opt of options; let i=index" class="form-group">
+      <label>Option {{i+1}}:</label>
+      <input class="form-control" [(ngModel)]="options[i]">
+    </div>
+  
+    <div class="form-group mt-2">
+      <label>Correct Answer:</label>
+      <input class="form-control" [(ngModel)]="answer">
+    </div>
+  
+    <button class="btn btn-success mt-3" (click)="addQuestion()">Add Question</button>
+  
+    <p class="mt-3 text-success">{{message}}</p>
+  </div>
+  

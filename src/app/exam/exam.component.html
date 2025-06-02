@@ -1,0 +1,74 @@
+<!-- <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3>🧪 NEET Exam: Cell - The Unit of Life</h3>
+      <span class="badge bg-warning text-dark fs-5">⏰ Time Left: {{ timeLeft }}s</span>
+    </div>
+  
+    <form (ngSubmit)="submit()">
+      <div *ngFor="let q of questions; let i = index" class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5>{{ i + 1 }}. {{ q.question }}</h5>
+          <div class="form-check" *ngFor="let opt of q.options">
+            <input
+              class="form-check-input"
+              type="radio"
+              [name]="'q' + i"
+              [value]="opt"
+              [(ngModel)]="selectedAnswers[i]"
+              required
+            />
+            <label class="form-check-label">{{ opt }}</label>
+          </div>
+        </div>
+      </div>
+  
+      <button class="btn btn-success w-100 mt-3" type="submit">✅ Submit Exam</button>
+    </form>
+  </div>
+   -->
+
+   <div class="container mt-4">
+    <!-- Set selection screen -->
+    <div *ngIf="!examStarted">
+      <h3 class="mb-4">🎯 Select Question Set to Start</h3>
+      <div class="form-group">
+        <label>Select Set:</label>
+        <select class="form-control" [(ngModel)]="selectedSet">
+          <option value="" disabled selected>-- Choose a set --</option>
+          <option *ngFor="let set of sets" [value]="set">{{ set }}</option>
+        </select>
+      </div>
+  
+      <button class="btn btn-primary mt-3 w-100" [disabled]="!selectedSet" (click)="startExam()">Start Exam</button>
+    </div>
+  
+    <!-- Exam screen -->
+    <div *ngIf="examStarted">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>🧪 Subject: {{ subject }}</h3>
+        <span class="badge bg-warning text-dark fs-5">⏰ Time Left: {{ timeLeft }}s</span>
+      </div>
+  
+      <form (ngSubmit)="submit()">
+        <div *ngFor="let q of questions; let i = index" class="card mb-3 shadow-sm">
+          <div class="card-body">
+            <h5>{{ i + 1 }}. {{ q.question }}</h5>
+            <div class="form-check" *ngFor="let opt of q.options">
+              <input
+                class="form-check-input"
+                type="radio"
+                [name]="'q' + i"
+                [value]="opt"
+                [(ngModel)]="selectedAnswers[i]"
+                required
+              />
+              <label class="form-check-label">{{ opt }}</label>
+            </div>
+          </div>
+        </div>
+  
+        <button class="btn btn-success w-100 mt-3" type="submit">✅ Submit Exam</button>
+      </form>
+    </div>
+  </div>
+  

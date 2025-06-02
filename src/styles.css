@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background: #f4f6f9;
+  }
+  .card {
+    border-radius: 1rem;
+  }
+.bg-image {
+    background-image: url('./app/img.jpeg'); /* put your image in src/assets */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+  }
+  
